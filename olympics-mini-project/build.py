@@ -42,4 +42,5 @@ def get_points(df):
     Points = []
     for index, row in df.iterrows():
         Points.append(row['Gold.2']*3 + row['Silver.2']*2 + row['Bronze']*1)
-    
+    df.insert(15, "Points", Points)
+    df
