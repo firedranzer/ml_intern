@@ -1,5 +1,6 @@
 import pandas as pd
 import re
+from sklearn.cluster import KMeans
 
 
 def load_data():
@@ -40,7 +41,14 @@ def biggest_difference_in_gold_medal(df):
 
 def get_points(df):
     Points = []
+    #Appending points to list.
     for index, row in df.iterrows():
         Points.append(row['Gold.2']*3 + row['Silver.2']*2 + row['Bronze']*1)
     df.insert(15, "Points", Points)
     df
+
+def k_means():
+    data = df[['# Games','Points']]
+    k = 3
+	kmeans =  KMeans(n_clusters=3).fit(data)
+	return (k,kmeans.cluster_centers_)
