@@ -28,23 +28,18 @@ def load_data():
     return df
     
 def first_country(df):
-    """
-        Enter your code here
-    """
+    return df.iloc[0]
 
 
 def gold_medal(df):
-    """
-        Enter your code here
-    """
+    return df.loc[df['Gold'].argmax()].name
 
 
 def biggest_difference_in_gold_medal(df):
-    """
-        Enter your code here
-    """
+    return df.loc[(df['Gold']-df['Gold.1']).abs().idxmax()].name
 
 def get_points(df):
-    """
-    Enter your code here
-    """
+    Points = []
+    for index, row in df.iterrows():
+        Points.append(row['Gold.2']*3 + row['Silver.2']*2 + row['Bronze']*1)
+    
