@@ -50,5 +50,5 @@ def get_points(df):
 def k_means():
     data = df[['# Games','Points']]
     k = 3
-	kmeans =  KMeans(n_clusters=3).fit(data)
-	return (k,kmeans.cluster_centers_)
+    kmeans =  KMeans(n_clusters=3).fit(data)
+    return (k,kmeans.cluster_centers_)
